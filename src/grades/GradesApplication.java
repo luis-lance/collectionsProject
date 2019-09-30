@@ -8,7 +8,7 @@ public class GradesApplication {
     static HashMap<String, String> students = new HashMap<>();
 
     public static void main(String[] args) {
-        boolean willContinue = true;
+
 
         Scanner input = new Scanner(System.in);
 
@@ -37,6 +37,7 @@ public class GradesApplication {
         students.put("alex", " @alex098");
         students.put("bob", " @bobs123");
 
+
         System.out.printf("Welcome!\nHere are the github usernames of our students:\n| %s |\t| %s |\t| %s |\t| %s |\n\n", students.get("lance"), students.get("luis"), students.get("alex"), students.get("bob"));
         System.out.println("What student would you like to see more information on?");
         do {
@@ -50,11 +51,11 @@ public class GradesApplication {
             } else if (response.equalsIgnoreCase("bobs123")) {
                 System.out.printf("Name: Bob - GitHub Username: @bobs123\nCurrent Average: %f\n\nWould you like to see another student?", bob.getGradeAverage());
             } else if (response.equalsIgnoreCase("no")) {
-                willContinue = false;
+
             } else {
                 System.out.printf("Sorry, no student found with the GitHub username of \"%s\"\nWould you like to see another student?\n", response);
             }
-        } while(willContinue);
+        } while(willContinue("Would you like to see another student?"));
 
     }
 
