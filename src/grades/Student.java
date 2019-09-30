@@ -1,5 +1,6 @@
 package grades;
-
+import java.awt.*;
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Student {
@@ -43,4 +44,16 @@ public class Student {
 //        System.out.println(luis);
     }
 
+    public boolean willContinue(String prompt){
+        Scanner input = new Scanner(System.in);
+        String response = input.nextLine();
+        if(response.equalsIgnoreCase("yes")|| response.equalsIgnoreCase("y")){
+            System.out.println("What student would you like to see information on");
+
+        } else if (response.equalsIgnoreCase("no")|| response.equalsIgnoreCase("n")){
+            System.out.println("Goodbye, have a wonderful day!");
+
+        }
+        return false;
+    }
 }
