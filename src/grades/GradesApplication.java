@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class GradesApplication {
 
-    static HashMap<String, String> students = new HashMap<>();
+    static HashMap<String, Student> students = new HashMap<>();
 
     public static void main(String[] args) {
 
@@ -13,8 +13,8 @@ public class GradesApplication {
         Scanner input = new Scanner(System.in);
 
         Student lance = new Student("Lance");
-        lance.addGrade(99);
-        lance.addGrade(45);
+        lance.addGrade(89);
+        lance.addGrade(55);
         lance.addGrade(71);
 
         Student luis = new Student("luis");
@@ -32,22 +32,26 @@ public class GradesApplication {
         bob.addGrade(66);
         bob.addGrade(55);
 
-        students.put("lance", "glitch78");
-        students.put("luis", "luis210");
-        students.put("alex", "alex098");
-        students.put("bob", "bobs123");
+        students.put("glitch78", lance);
+        students.put("luis210", luis);
+        students.put("alex098", alex);
+        students.put("bobs123", bob);
+
+        displayStudents();
 
 
-        System.out.printf("Welcome!\nHere are the github usernames of our students:\n| %s |   | %s |   | %s |   | %s |\n\n", students.get("lance"), students.get("luis"), students.get("alex"), students.get("bob"));
+//       System.out.printf("Welcome!\nHere are the github usernames of our students:\n| %s |   | %s |   | %s |   | %s |\n\n", students.get("lance"), students.get("luis"), students.get("alex"), students.get("bob"));
+
         do {
             System.out.println("What student would you like to see more information on?");
             String response = input.nextLine();
-            for (Map.Students<String, String> e : hashmap.entrySet()) {
-                String key = e.getKey();
-                String value = e.getValue();
+            for (String Student : students.keySet()) {
+//                System.out.printf("| %s |   | %s |   | %s |   | %s |\n\n",students.get(lance).getName());
             }
-            if (students.containsValue(response)) {
-                System.out.printf("Name: %s - GitHub Username: %s\nCurrent Average: %f\n\n", students.get("lance"), students.values(), lance.getGradeAverage());
+            if (students.containsKey(response)) {
+//                System.out.printf("Name: %s - GitHub Username: %s\nCurrent Average: %f\n\n", students.get(response).getName(), students.get(response).getGradeAverage());
+                System.out.println("Name: " + students.get(response).getName() + " - GitHub Username: " + response);
+                System.out.println("Current Average: " + students.get(response).getGradeAverage());
             } else if (response.equalsIgnoreCase("no")) {
                 System.out.println("Goodbye, and have a wonderful day!");
             } else {
@@ -70,4 +74,11 @@ public class GradesApplication {
         return false;
     }
 
+    public static void displayStudents() {
+        System.out.println("Here are the GitHub usernames of our students:");
+        for (String username : students.keySet()) {
+            System.out.print(username + " | ");
+        }
+        System.out.println(students.keySet());
+    }
 }
